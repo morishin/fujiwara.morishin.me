@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta content="text/html" charset="utf-8" />
+    <meta property="og:title" content="藤原竜也変換ツール" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="ん゛あ゛あ゛あ゛あ゛あ゛ぁ゛ぁ゛あ゛あ゛！゛！゛！゛！゛"
+    />
+    <meta property="og:url" content="https://fujiwara.morishin.me/" />
+    <meta property="og:image" content="https://fujiwara.morishin.me/ogp.png" />
+    <meta property="og:site_name" content="藤原竜也変換ツール" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="fb:app_id" content="199231073557337" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css"
+      rel="stylesheet"
+      media="screen"
+    />
+    <title>藤原竜也変換ツール</title>
+    <style>
+      html,
+      body {
+        background-color: #eeeeee;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      h5 {
+        color: #777777;
+      }
+
+      hr {
+        margin-bottom: 5px;
+      }
+
+      small {
+        color: #777777;
+      }
+
+      #rights {
+        margin-bottom: 50px;
+        font-size: 0.9em;
+      }
+
+      .animated {
+        -webkit-transition: height 0.2s;
+        -moz-transition: height 0.2s;
+        transition: height 0.2s;
+      }
+
+      #line {
+        float: left;
+        padding-right: 10px;
+        margin-right: 10px;
+      }
+
+      iframe.twitter-share-button {
+        width: 115px !important;
+      }
+
+      .fb-like {
+        width: 115px !important;
+      }
+
+      textarea {
+        border: 2px solid #ccc;
+        padding: 5px;
+        vertical-align: top;
+        width: 100%;
+      }
+
+      #converted {
+        background-color: #eeeeee;
+      }
+
+      @media screen and (min-width: 840px) {
+        .header {
+          padding: 20px 0px;
+        }
+
+        h1 {
+          display: inline-block;
+          color: #333333;
+        }
+
+        .container {
+          min-height: 100%;
+          width: 80%;
+          margin: 0 auto;
+          background-color: #fff;
+          padding: 0px 20px 0px;
+        }
+
+        .area1 {
+          width: 90%;
+          text-align: center;
+        }
+
+        .social_buttons div {
+          padding-top: 2px;
+          margin-bottom: 20px;
+          margin-right: 20px;
+          float: left;
+        }
+
+        .share {
+          padding-top: 20px;
+        }
+
+        .twitter-timeline {
+          margin-top: 20px;
+        }
+      }
+
+      @media screen and (max-width: 840px) and (min-width: 320px) {
+        h1 {
+          display: inline-block;
+          color: #333333;
+          font-size: 30px;
+        }
+
+        .container {
+          min-height: 100%;
+          width: 80%;
+          margin: 0 auto;
+          background-color: #fff;
+          padding: 20px 32px 20px 20px;
+        }
+
+        .area1 {
+          width: 100%;
+          text-align: center;
+        }
+
+        .social_buttons div {
+          padding-top: 2px;
+          margin-bottom: 20px;
+          margin-right: 20px;
+          float: left;
+        }
+
+        .share {
+          padding-top: 20px;
+        }
+
+        .twitter-timeline {
+          margin-top: 20px;
+        }
+
+        .others {
+          margin-top: 90px;
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        h1 {
+          display: inline-block;
+          color: #333333;
+          font-size: 25px;
+        }
+
+        .container {
+          min-height: 100%;
+          width: 90%;
+          margin: 0 auto;
+          background-color: #fff;
+          padding: 0px 10px;
+        }
+
+        .area1 {
+          width: 95%;
+          text-align: center;
+        }
+
+        .social_buttons div {
+          padding-top: 2px;
+          margin-bottom: 10px;
+          margin-right: 10px;
+          float: left;
+        }
+
+        .share {
+          padding-top: 15px;
+        }
+
+        .others {
+          margin-top: 90px;
+        }
+      }
+    </style>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/1.17.1/autosize-min.js"
+      type="text/javascript"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $(".normal").autosize();
+        $(".animated").autosize({ append: "\n" });
+        $("#plain").bind("keyup", function() {
+          var str = $(this).val();
+          $("#converted")
+            .val(str.replace(/(.)/g, "$1゛"))
+            .trigger("autosize.resize");
+        });
+        $("#plain").click(function() {
+          $(this)[0].setSelectionRange(0, 9999);
+        });
+        $("#converted").click(function() {
+          $(this)[0].setSelectionRange(0, 9999);
+        });
+      });
+      function tweet() {
+        window.open(
+          "https://twitter.com/intent/tweet?text=" +
+            encodeURIComponent(
+              $("#converted").val() + "\nhttps://fujiwara.morishin.me"
+            )
+        );
+      }
+    </script>
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i["GoogleAnalyticsObject"] = r;
+        (i[r] =
+          i[r] ||
+          function() {
+            (i[r].q = i[r].q || []).push(arguments);
+          }),
+          (i[r].l = 1 * new Date());
+        (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m);
+      })(
+        window,
+        document,
+        "script",
+        "//www.google-analytics.com/analytics.js",
+        "ga"
+      );
+      ga("create", "UA-42083983-2", "auto");
+      ga("send", "pageview");
+    </script>
+    <script type="text/javascript">
+      var nend_params = {
+        media: 5011,
+        site: 36298,
+        spot: 70739,
+        type: 2,
+        oriented: 1
+      };
+    </script>
+    <script
+      type="text/javascript"
+      src="http://js1.nend.net/js/nendAdLoader.js"
+    ></script>
+  </head>
+
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.3&appId=199231073557337";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+
+    <div class="container">
+      <div class="header">
+        <h1>藤原竜也変換ツール</h1>
+      </div>
+      <div class="row-fluid">
+        <div class="span7">
+          <h5>こちらに入力してください▼</h5>
+          <div class="area1">
+            <textarea id="plain" class="normal">
+どうしてなんだよおおぉお！！！んあああああぁぁああ！！！！</textarea
+            >
+          </div>
+          <h5>変換後▼</h5>
+          <div class="area1">
+            <textarea id="converted" class="animated">
+ど゛う゛し゛て゛な゛ん゛だ゛よ゛お゛お゛ぉ゛お゛！゛！゛！゛ん゛あ゛あ゛あ゛あ゛あ゛ぁ゛ぁ゛あ゛あ゛！゛！゛！゛！゛</textarea
+            >
+          </div>
+          <button class="btn btn-primary" onClick="tweet();">
+            ツ゛イ゛ー゛ト゛す゛る゛
+          </button>
+          <div class="share">
+            <h5>このページをシェアする▼</h5>
+            <!-- LINE -->
+            <div id="line">
+              <div
+                class="line-it-button"
+                data-lang="ja"
+                data-type="share-a"
+                data-ver="2"
+                data-url="https://fujiwara.morishin.me"
+                style="display: none;"
+              ></div>
+              <script
+                src="https://d.line-scdn.net/r/web/social-plugin/js/thirdparty/loader.min.js"
+                async="async"
+                defer="defer"
+              ></script>
+            </div>
+            <div class="social_buttons">
+              <!-- Hatena -->
+              <div>
+                <a
+                  href="http://b.hatena.ne.jp/entry/s/fujiwara.morishin.me"
+                  class="hatena-bookmark-button"
+                  data-hatena-bookmark-layout="basic-label-counter"
+                  data-hatena-bookmark-lang="ja"
+                  title="このエントリーをはてなブックマークに追加"
+                  ><img
+                    src="https://b.st-hatena.com/images/v4/public/entry-button/button-only@2x.png"
+                    alt="このエントリーをはてなブックマークに追加"
+                    width="20"
+                    height="20"
+                    style="border: none;"
+                /></a>
+              </div>
+              <!-- Tweet -->
+              <div>
+                <a
+                  href="https://twitter.com/share"
+                  class="twitter-share-button"
+                  data-lang="ja"
+                  >ツイート</a
+                >
+                <script>
+                  !(function(d, s, id) {
+                    var js,
+                      fjs = d.getElementsByTagName(s)[0],
+                      p = /^http:/.test(d.location) ? "http" : "https";
+                    if (!d.getElementById(id)) {
+                      js = d.createElement(s);
+                      js.id = id;
+                      js.src = p + "://platform.twitter.com/widgets.js";
+                      fjs.parentNode.insertBefore(js, fjs);
+                    }
+                  })(document, "script", "twitter-wjs");
+                </script>
+              </div>
+              <!-- Facebook -->
+              <div
+                class="fb-like"
+                data-href="https://fujiwara.morishin.me/"
+                data-width="115"
+                data-layout="button_count"
+                data-action="like"
+                data-show-faces="false"
+                data-share="true"
+              ></div>
+            </div>
+          </div>
+        </div>
+        <div class="span5">
+          <a
+            class="twitter-timeline"
+            height="400px"
+            href="https://twitter.com/search?q=http%3A%2F%2Ffujiwara.tatyusapps.com%2F%20OR%20http%3A%2F%2Ffujiwara.morishin.me%2F"
+            data-widget-id="469478921310707712"
+            >ツ゛イ゛ー゛ト゛</a
+          >
+          <script>
+            !(function(d, s, id) {
+              var js,
+                fjs = d.getElementsByTagName(s)[0],
+                p = /^http:/.test(d.location) ? "http" : "https";
+              if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.src = p + "://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+              }
+            })(document, "script", "twitter-wjs");
+          </script>
+        </div>
+        <hr size="1" width="100%" />
+        <div id="rights">
+          created by <a href="https://twitter.com/morishin127">@morishin127</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
